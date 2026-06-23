@@ -7,6 +7,8 @@ import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
+import ExperienceHub from "./ExperienceHub";
+import Education from "./Education";
 import Work from "./Work";
 import setSplitText from "./utils/splitText";
 
@@ -34,13 +36,15 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
+      {/* Removed children from outside smooth-wrapper */}
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Landing>{children}</Landing>
             <About />
             <WhatIDo />
+            <ExperienceHub />
+            <Education />
             <Career />
             <Work />
             {isDesktopView && (

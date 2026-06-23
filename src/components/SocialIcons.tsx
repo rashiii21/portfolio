@@ -13,7 +13,7 @@ const SocialIcons = () => {
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
 
-    social.querySelectorAll("span").forEach((item) => {
+    social.querySelectorAll(":scope > span").forEach((item) => {
       const elem = item as HTMLElement;
       const link = elem.querySelector("a") as HTMLElement;
 
@@ -60,27 +60,23 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com" target="_blank">
-            <FaGithub />
+          <a href="https://github.com/rashiii21" target="_blank">
+            <FaGithub /> <span className="social-link-text">github.com/rashiii21</span>
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com" target="_blank">
-            <FaLinkedinIn />
+          <a href="https://www.linkedin.com/in/rashiishrivastava" target="_blank">
+            <FaLinkedinIn /> <span className="social-link-text">linkedin.com/in/rashiishrivastava</span>
           </a>
         </span>
+
         <span>
-          <a href="https://x.com" target="_blank">
-            <FaXTwitter />
-          </a>
-        </span>
-        <span>
-          <a href="https://www.instagram.com" target="_blank">
-            <FaInstagram />
+          <a href="https://www.instagram.com/rashisenco" target="_blank">
+            <FaInstagram /> <span className="social-link-text">instagram.com/rashisenco</span>
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a className="resume-button" href="https://drive.google.com/file/d/1M_4hBmxLUGH2nDqZYir4fTHNh666Eygt/view?usp=sharing" target="_blank">
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

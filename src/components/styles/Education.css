@@ -1,0 +1,126 @@
+.education-section {
+  padding: 100px 0;
+  position: relative;
+  z-index: 10;
+  width: var(--cWidth);
+  max-width: var(--cMaxWidth);
+  margin: auto;
+}
+
+.education-header h2 {
+  font-size: calc(3vw + 20px);
+  margin-bottom: 60px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.education-header span {
+  color: var(--accentColor);
+  font-style: italic;
+}
+
+.education-palettes {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.education-palette {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 50px;
+  position: relative;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.education-palette:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.education-palette-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(200, 191, 255, 0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.education-palette:hover .education-palette-glow {
+  opacity: 1;
+}
+
+.education-palette-content {
+  position: relative;
+  z-index: 2;
+}
+
+.education-palette-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.education-palette-top h3 {
+  font-size: 32px;
+  color: var(--accentColor);
+  margin: 0;
+  font-weight: 600;
+}
+
+.education-duration {
+  font-size: 16px;
+  background: rgba(200, 191, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.education-palette-mid h4 {
+  font-size: 24px;
+  color: #fff;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.education-palette-bottom p {
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 300;
+  max-width: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+  .education-palette {
+    padding: 30px;
+  }
+
+  .education-palette-top {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .education-palette-top h3 {
+    font-size: 24px;
+  }
+
+  .education-palette-bottom p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+}

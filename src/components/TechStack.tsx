@@ -11,18 +11,11 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/react2.webp",
-  "/images/next2.webp",
-  "/images/node2.webp",
-  "/images/express.webp",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const skillsList = [
+  "Python", "Node.js", "C", "C++", "SQL", "Oracle", 
+  "Java", "HTML", "CSS", "Git", "React", "DSA",
+  "Data Analysis", "AI", "Gen AI", "Prompt Engineering", "UI/UX", "PowerBI"
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -151,24 +144,51 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const materials = useMemo(() => {
-    return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
-          map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
-        })
-    );
+    return skillsList.map((skill) => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext("2d")!;
+      
+      // Draw background
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, 512, 512);
+
+      // Draw subtle border pattern
+      ctx.beginPath();
+      ctx.arc(256, 256, 240, 0, 2 * Math.PI);
+      ctx.lineWidth = 15;
+      ctx.strokeStyle = "#f0f0f0";
+      ctx.stroke();
+      
+      // Draw text
+      ctx.fillStyle = "#111827";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      let fontSize = 80;
+      if (skill.length > 10) fontSize = 50;
+      ctx.font = `bold ${fontSize}px Arial, sans-serif`;
+      ctx.fillText(skill, 256, 256);
+
+      const texture = new THREE.CanvasTexture(canvas);
+      
+      return new THREE.MeshPhysicalMaterial({
+        map: texture,
+        emissive: "#ffffff",
+        emissiveMap: texture,
+        emissiveIntensity: 0.1,
+        metalness: 0.5,
+        roughness: 1,
+        clearcoat: 0.1,
+      });
+    });
   }, []);
 
   return (
     <div className="techstack">
-      <h2> My Techstack</h2>
+      <h2> My Techstack <span>Skills</span></h2>
 
       <Canvas
         shadows
@@ -207,6 +227,16 @@ const TechStack = () => {
           <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
         </EffectComposer>
       </Canvas>
+
+      <div className="skills-marquee-container">
+        <div className="skills-marquee-content">
+          {[...skillsList, ...skillsList, ...skillsList].map((skill, index) => (
+            <span key={index} className="skill-pill">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

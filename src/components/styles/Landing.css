@@ -1,3 +1,17 @@
+@keyframes slowFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.landing-rashi-img {
+  opacity: 0;
+  animation: slowFadeIn 10s ease-in-out 3s forwards;
+}
+
 .landing-section {
   width: 100%;
   max-width: var(--cMaxWidth);
@@ -296,7 +310,7 @@ h2.landing-info-h2 {
     height: 100vh;
     bottom: 0;
     z-index: 11;
-    position: fixed;
+    position: absolute;
   }
   .character-model::after,
   .character-model::before {

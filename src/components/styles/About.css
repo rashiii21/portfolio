@@ -1,13 +1,14 @@
 .about-section {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: left;
-  place-items: center;
+  justify-content: center;
   position: relative;
   opacity: 1;
   height: auto;
   width: var(--cWidth);
   margin: auto;
+  gap: 30px;
 }
 .about-me {
   padding: 50px 0px;
@@ -24,10 +25,10 @@
 }
 
 .about-me p {
-  font-size: 33px;
-  font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0.5px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -48,24 +49,28 @@
 @media only screen and (min-width: 1025px) {
   .about-section {
     width: var(--cWidth);
-    justify-content: right;
+    justify-content: center;
+    gap: 5%;
     max-width: 1920px;
     height: var(--vh);
     padding: 0px;
     opacity: 1;
+    display: flex;
+    flex-direction: row;
   }
   .about-me {
     padding: 0px;
-    width: 50%;
+    width: 45%;
   }
   .about-me p {
-    font-size: 1.9vw;
-    line-height: 2.3vw;
+    font-size: 1.2vw;
+    line-height: 1.8vw;
+    font-weight: 400;
   }
 }
 @media only screen and (min-width: 1950px) {
   .about-me p {
-    font-size: 2.5rem;
-    line-height: 2.7rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 }
