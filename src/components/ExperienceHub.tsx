@@ -5,7 +5,7 @@ import "./styles/ExperienceHub.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const tabData = {
+const tabData: Record<string, { title: string; subtitle: string; desc: string; image?: string }[]> = {
   "Certificates & Hackathons": [
     {
       title: "Google Cloud Gen AI Academy APAC",
